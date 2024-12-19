@@ -1,0 +1,163 @@
+:root {
+    --background: linear-gradient(135deg, #1e3c72, #2a5298); /* Blue gradient */
+    --box-background: #ffffff; /* White for contrast */
+    --primary-color: #3a80ba; /* Bright blue for buttons */
+    --secondary-color: #dce6f1; /* Light blue-gray for input borders */
+    --accent-color: #22577a; /* Deep navy for accent */
+    --text-color: #333333; /* Dark gray for readability */
+    --shadow-color: rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    --danger-color: #ff5c5c; /* Red for delete buttons */
+    --hover-primary: #1b6699; /* Hover effect for buttons */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    padding: 40px; /* Increased padding for more space around the box */
+}
+
+.wrapper {
+    width: 600px;
+    max-width: 90%;
+    background-color: var(--box-background);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    padding: 40px; /* More space inside the box */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1 {
+    font-size: 3rem; /* Increased size for the heading */
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#todo-input {
+    padding: 12px 15px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    width: 100%; /* Input spans the full width */
+    max-width: 500px; /* Slightly longer text bar */
+    align-self: center; /* Center the input field */
+}
+
+#todo-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #e8f1fb;
+}
+
+#add-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center; /* Center the button */
+    margin-top: 10px;
+}
+
+#add-button:hover {
+    background-color: var(--hover-primary);
+    transform: scale(1.05);
+}
+
+.todo {
+    background-color: var(--box-background);
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.todo .todo-text {
+    flex-grow: 1;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.todo .todo-text.completed {
+    text-decoration: line-through;
+    color: var(--secondary-color);
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.delete-button svg {
+    fill: var(--danger-color);
+    transition: fill 0.3s ease;
+}
+
+.delete-button:hover svg {
+    fill: #ff8787; /* Softer red on hover */
+}
+
+.delete-button:hover {
+    transform: scale(1.1);
+}
+
+.custom-checkbox {
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .wrapper {
+        width: 100%;
+        padding: 20px;
+    }
+}
